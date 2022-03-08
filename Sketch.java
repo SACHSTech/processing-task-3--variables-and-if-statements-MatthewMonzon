@@ -16,24 +16,47 @@ public class Sketch extends PApplet {
    * values here i.e background, stroke, fill etc.
    */
   public void setup() {
-    
-    background(135, 206, 235);
 
-    //sun
+    // sun
     float fltSunX = random(0, 350);
     float fltSunY = random(0, width);
     float fltSunD = random(60, 120);
+    fill(255, 255, 0);
     ellipse(fltSunX, fltSunY, fltSunD, fltSunD);
+
+    // blue background green grass
+    if (fltSunY <= 100) {
+      background(135, 206, 235);
+      ellipse(fltSunX, fltSunY, fltSunD, fltSunD);
+      fill(86, 125, 70);
+      rect(0, 350, 400, 50);
+    }
+
+    // orange background brown ground
+      else if (fltSunY > 101 && fltSunY < 200) {
+      background(255, 160, 1);
+      ellipse(fltSunX, fltSunY, fltSunD, fltSunD);
+      fill(120, 198, 51);
+      rect(0, 350, 400, 50);
+    }
+    // pink background blue ground
+        else if (fltSunY > 201 && fltSunY < 400) {
+      background(180, 51, 198);
+      ellipse(fltSunX, fltSunY, fltSunD, fltSunD);
+      fill(46, 103, 180);
+      rect(0, 350, 400, 50);
+    }
+    // time 
+    fill(0, 0, 0);
+    textSize(16);
+    text(day() + "/" + month() + "/" + year() + "  " + (hour() + ":" + minute() + ":" + second()), 20, 30);
+
   }
 
   /**
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-
-    //ground
-	  fill(86, 125, 70);
-    rect(0, 350, 400, 50);
 
     // red square
     fill(203, 65, 84);
